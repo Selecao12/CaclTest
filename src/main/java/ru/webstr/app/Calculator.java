@@ -1,7 +1,8 @@
 package ru.webstr.app;
 
 public class Calculator {
-    public int sum(int a, int b) {
-        return a + b;
+    public Integer sum(Integer a, Integer b) {
+        return null;
+//        return a + b;
     }
 }
