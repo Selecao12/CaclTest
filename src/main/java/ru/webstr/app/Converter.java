@@ -1,16 +1,34 @@
 package ru.webstr.app;
 
-import java.math.BigDecimal;
-
 public class Converter {
 
-    public double euroToDollar(double i) {
-        BigDecimal euros = new BigDecimal(Double.toString(i));
-        return euros.multiply(new BigDecimal(Double.toString(1.08))).doubleValue();
+    private static final double DOLLAR_TO_EURO_COURSE = 0.92;
+    private static final double DOLLAR_TO_RUBLE_COURSE = 74.53;
+    private static final double EURO_TO_RUBLE_COURSE = 80.78;
+
+    public double euroToDollar(double euros) {
+        return (double) Math.round((euros / DOLLAR_TO_EURO_COURSE) * 100) / 100;
     }
 
-    public double dollarToEuro(double i) {
-        BigDecimal dollars = new BigDecimal(Double.toString(i));
-        return dollars.multiply(new BigDecimal(Double.toString(0.92))).doubleValue();
+    public double euroToRuble(double euros) {
+        return (double) Math.round((euros * EURO_TO_RUBLE_COURSE) * 100) / 100;
     }
+
+    public double dollarToEuro(double dollars) {
+        return (double) Math.round((dollars * DOLLAR_TO_EURO_COURSE) * 100) / 100;
+    }
+
+    public double dollarToRuble(double dollars) {
+        return (double) Math.round((dollars * DOLLAR_TO_RUBLE_COURSE) * 100) / 100;
+    }
+
+    public double rubleToDollar(double rubles) {
+        return (double) Math.round((rubles / DOLLAR_TO_RUBLE_COURSE) * 100) / 100;
+    }
+
+    public double rubleToEuro(double rubles) {
+        return (double) Math.round((rubles / EURO_TO_RUBLE_COURSE) * 100) / 100;
+    }
+
+
 }
